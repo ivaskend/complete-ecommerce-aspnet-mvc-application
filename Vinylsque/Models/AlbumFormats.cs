@@ -12,6 +12,8 @@ namespace Vinylsque.Models
         public int Id { get; set; }
         public string Name { get; set; }
 
+        //Relationships
+        public List<Vinyl> Vinyls { get; set; }
 
     }
 }
