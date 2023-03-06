@@ -21,7 +21,7 @@ namespace Vinylsque.Controllers
         public async Task<IActionResult> Index()
         {
                 var allAlbumFormats = await _context.AlbumFormats.ToListAsync();
-                return View();
+                return View(allAlbumFormats);
          }
         }
     }

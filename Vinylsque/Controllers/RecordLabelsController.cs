@@ -21,7 +21,7 @@ namespace Vinylsque.Controllers
     public async Task<IActionResult> Index()
         {
             var allRecordLabels = await _context.RecordLabels.ToListAsync();
-            return View();
+            return View(allRecordLabels);
         }
     }
 }
