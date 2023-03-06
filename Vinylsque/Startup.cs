@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Vinylesque.Data.Services;
 using Vinylsque.Data;
 
 namespace Vinylsque
@@ -27,6 +28,9 @@ namespace Vinylsque
         {
             //DbContext configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+
+            //Services configuration
+            services.AddScoped<IArtistsService, ArtistsService>();
 
             services.AddControllersWithViews();
         }

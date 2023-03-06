@@ -20,8 +20,8 @@ namespace Vinylsque.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allVinyls = await _context.Vinyls.ToListAsync();
-            return View();
+            var allVinyls = await _context.Vinyls.Include(n => n.AlbumFormats).OrderBy(n=> n.Name).ToListAsync();
+            return View(allVinyls);
         }
     }
 }

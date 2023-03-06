@@ -10,6 +10,8 @@ namespace Vinylsque.Models
     {
         [Key]
         public int Id { get; set; }
+        
+        [Display(Name = "Types of Vinyls")]
         public string Name { get; set; }
 
         //Relationships
