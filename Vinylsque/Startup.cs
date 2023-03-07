@@ -31,6 +31,7 @@ namespace Vinylsque
 
             //Services configuration
             services.AddScoped<IArtistsService, ArtistsService>();
+            services.AddScoped<IRecordLabelsService, RecordLabelsService>(); 
 
             services.AddControllersWithViews();
         }
