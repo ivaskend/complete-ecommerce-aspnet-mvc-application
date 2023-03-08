@@ -11,7 +11,7 @@ namespace Vinylsque.Models
         [Key]
         public int Id { get; set; }
         
-        [Display(Name = "Types of Vinyls")]
+        [Display(Name = "AlbumFormats")]
         public string Name { get; set; }
 
         //Relationships

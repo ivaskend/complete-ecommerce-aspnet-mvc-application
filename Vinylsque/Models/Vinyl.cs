@@ -4,11 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using Vinylesque.Data.Base;
 using Vinylsque.Data;
 
 namespace Vinylsque.Models
 {
-    public class Vinyl
+    public class Vinyl:IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -22,7 +23,7 @@ namespace Vinylsque.Models
 
         //Relationships
 
-        public List<Vinyl_Artist> Artists_Vinyl { get; set; }
+        public List<Vinyl_Artist> Vinyl_Artist { get; set; }
 
         //AlbumFormats
         public int AlbumFormatsId { get; set; }

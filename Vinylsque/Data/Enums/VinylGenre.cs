@@ -7,10 +7,12 @@ namespace Vinylsque.Data
 {
     public enum VinylGenre
     {
-        AlternativeRock = 1,
-        Blues,
-        ClassicRock,
+        Rock =1,
+        AlternativeRock,
         Pop,
-        Jazz,
+        RnB,
+        Rap,
+        ClassicRock
+       
     }
 }

@@ -1,0 +1,68 @@
+﻿@model Vinyl
+
+@{
+    ViewData["Title"] = "Vinyl Detail";
+}
+
+<div class="row">
+    <div class="row">
+            <div class="col-md-8 offset-2">
+                <div class="card text-white bg-dark mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-12">
+                            <div class="card-header text-white bg-dark">
+                                <p class="card-text">
+                                    <h5 class="card-title">
+                                        @Model.Name
+                                    </h5>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="@Model.ImageURL" width="100%" alt="@Model.Name">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">@Model.Description</p>
+                                <p class="card-text"><b>Album Format: </b>@Model.AlbumFormats.Name</p>
+                                <p class="card-text"><b>Record Label: </b>
+                                <a asp-controller="RecordLabels" asp-action="Details" asp-route-id="@Model.RecordLabelId">
+                                    @Model.RecordLabel.FullName</a>
+                               </p>
+                                <p class="card-text"><b>Genre: </b>@Model.VinylGenre</p>
+                                <p class="card-text"><b>Price: </b>@Model.Price</p>
+
+                                <p class="card-text">
+                                    <b>Artist:</b>
+                                    <hr />
+                                    <div class="row">
+                                        @foreach (var artist in Model.Vinyl_Artist)
+                                           {
+                                            <div class="column text-center">
+                                                <img class="border-info rounded-circle"  src="@artist.Artist.ProfilePictureURL" style="max-width:150px"/>
+                                                <br />
+                                                <a asp-controller="Artists" asp-action="Details" asp-route-id="@artist.Artist.Id">@artist.Artist.FullName</a>
+                                            </div>
+                                           }
+                                    </div>
+                                </p>
+
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card-footer ">
+                                <p class="card-text">
+                                    <a class="btn btn-warning text-white float-right" asp-action="Index" >
+                                        Back to List 
+                                    </a>
+                                    <a class="btn btn-warning text-white"><i class="bi bi-cart-plus"></i> Add to Cart (@Model.Price.ToString("c"))</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+

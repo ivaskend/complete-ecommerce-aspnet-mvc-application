@@ -21,7 +21,7 @@ namespace Vinylsque.Data
                 av.VinylId
             });
 
-            modelBuilder.Entity<Vinyl_Artist>().HasOne(v => v.Vinyl).WithMany(av => av.Artists_Vinyl).HasForeignKey(v =>
+            modelBuilder.Entity<Vinyl_Artist>().HasOne(v => v.Vinyl).WithMany(av => av.Vinyl_Artist).HasForeignKey(v =>
             v.VinylId);
             modelBuilder.Entity<Vinyl_Artist>().HasOne(v => v.Artist).WithMany(av => av.Artists_Vinyl).HasForeignKey(v =>
            v.ArtistId);
