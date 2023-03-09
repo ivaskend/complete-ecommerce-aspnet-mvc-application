@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -29,6 +29,14 @@ namespace Vinylsque.Controllers
         {
             var vinylDetail = await _service.GetVinylByIdAsync(id);
             return View(vinylDetail);
+        }
+        //GET: Vinyls/Create
+
+        public IActionResult Create()
+        {
+            ViewData["Welcome"] = "Welcome to our store";
+            ViewBag.Description = "This is the store description";
+            return View();
         }
     }
 }

@@ -4,12 +4,12 @@
     ViewData["Title"] = "List of Vinyls";
 }
 
-<div class="row">
+<div class="row bg-dark">
     <div class="row">
         @foreach (var item in Model)
         {
             <div class="col-md-4 col-xs-6 border-primary mb-3">
-                <div class="card mb-3">
+                <div class="card mb-3 shadow-inner">
                     <div class="row g-0">
                         <div class="col-md-12">
                             <div class="card-header text-white bg-dark">
@@ -36,8 +36,8 @@
                             <div class="card-footer ">
                                 <p class="card-text">
                                     <a class="btn btn-outline-secondary float-right" asp-action="Details" asp-route-id="@item.Id">
-                                    <i class="bi bi-eye-fill"></i> Show Details</a>
-                                    <a class="btn btn-warning text-white"><i class="bi bi-cart-plus"></i> Add to Cart (@item.Price.ToString("c"))</a>
+                                    <i class="bi bi-eye"></i> Show Details</a>
+                                    <a class="btn btn-outline-warning "><i class="bi bi-cart-plus"></i> Add to Cart (@item.Price.ToString("c"))</a>
                                 </p>
                             </div>
                         </div>
