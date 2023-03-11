@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Vinylesque.Data.Cart;
 using Vinylesque.Data.Services;
 using Vinylsque.Data;
 
@@ -33,6 +35,12 @@ namespace Vinylsque
             services.AddScoped<IArtistsService, ArtistsService>();
             services.AddScoped<IRecordLabelsService, RecordLabelsService>();
             services.AddScoped<IVinylsService, VinylsService>();
+            services.AddScoped<IOrdersService, OrdersService>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+            services.AddSession();
+
             services.AddControllersWithViews();
         }
 
@@ -54,6 +62,7 @@ namespace Vinylsque
 
             app.UseRouting();
 
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
