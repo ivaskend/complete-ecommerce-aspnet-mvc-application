@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Vinylesque.Models;
 using Vinylsque.Models;
 
 namespace Vinylsque.Data
@@ -35,6 +36,13 @@ namespace Vinylsque.Data
         public DbSet<AlbumFormats> AlbumFormats{ get; set; }
         public DbSet<RecordLabel> RecordLabels { get; set; }
 
+        //Orders related tables
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderItem> OrderItems { get; set; }
+
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
 
 
 

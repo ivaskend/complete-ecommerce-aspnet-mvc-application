@@ -10,7 +10,9 @@ using Vinylsque.Data;
 namespace Vinylsque.Models
 {
     public class NewVinyl
-    {   
+    {
+        public int Id { get; set; }
+
         [Display(Name ="Vinyl name")]
         [Required(ErrorMessage ="Name is required")]
    
